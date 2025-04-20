@@ -6,12 +6,7 @@ const AICarDreamer = () => {
         <View style={styles.dreamCarContainer}>
             <Image
                 source={require('../../../assets/AIcontent.jpg')}
-                style={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: 10,
-                }}
+                style={styles.dreamCarImage}
             />
             <Text style={styles.dreamCarText}>
                 AI Car Dreamer!
@@ -37,6 +32,15 @@ const styles = StyleSheet.create({
         padding: 15,
         marginVertical: 40,
         marginHorizontal: 20,
+        borderColor: 'lightgray',
+        borderRadius: 25
+    },
+    dreamCarImage: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        borderRadius: 10,
+        marginHorizontal: 14,
     },
     dreamCarText: {
         fontSize: 24,
