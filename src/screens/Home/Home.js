@@ -3,6 +3,7 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import HeroContent from './HeroContent'
 import AICarDreamer from './AICarDreamer'
+import Categories from './Categories'
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
       <ScrollView style={styles.scrollView}>
         <HeroContent />
         <AICarDreamer />
-
+        <Categories />
       </ScrollView>
     </View>
   )
