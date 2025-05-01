@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import HeroContent from './HeroContent'
 import AICarDreamer from './AICarDreamer'
 import Categories from './Categories'
+import ChargerMap from './ChargerMap'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <HeroContent />
         <AICarDreamer />
         <Categories />
+        <ChargerMap />
       </ScrollView>
     </View>
   )
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   scrollView: {
-    marginBottom: 40
+    marginBottom: 100
   }
 
 })
