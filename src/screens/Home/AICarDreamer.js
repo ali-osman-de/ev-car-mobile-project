@@ -1,7 +1,15 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+
 
 const AICarDreamer = () => {
+  const navigation = useNavigation();
+  
+    const handleLetStart = () => {
+        navigation.navigate('AIContent')
+    };
+
     return (
         <View style={styles.dreamCarContainer}>
             <Image
@@ -15,7 +23,8 @@ const AICarDreamer = () => {
                 You can find your dream car with AI!
             </Text>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={handleLetStart}>
                     <Text style={styles.buttonText}>Let's Start</Text>
                 </TouchableOpacity>
             </View>

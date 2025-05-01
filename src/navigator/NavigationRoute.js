@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from '../screens/Home/Home';
 import SettingsStack from './SettingsStack';
 import AllProductsStack from "./AllProductsStack";
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -65,7 +65,7 @@ function NavigationRoute() {
                 },
             })}
         >
-            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Home" component={HomeStack} />
             <Tab.Screen name="Cars" component={AllProductsStack} />
             <Tab.Screen name="Settings" component={SettingsStack} />
         </Tab.Navigator>
