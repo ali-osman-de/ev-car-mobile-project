@@ -1,8 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-const Categoriies = () => {
+const Categories = () => {
+  const navigation = useNavigation();
+  
   const categories = [{
     id: 1,
     name: 'Sedan',
@@ -24,12 +27,24 @@ const Categoriies = () => {
     image: require('../../../assets/van.png')
   }
   ];
+
+  const handleCategoryPress = (category) => {
+    navigation.navigate('SelectedCategory', { 
+      categoryId: category.id,
+      categoryName: category.name
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Category</Text>
       <View style={styles.categoriesContainer}>
         {categories.map((category) => (
-          <TouchableOpacity key={category.id} style={styles.categoriesContainerOpacity}>
+          <TouchableOpacity 
+            key={category.id} 
+            style={styles.categoriesContainerOpacity}
+            onPress={() => handleCategoryPress(category)}
+          >
             <Image source={category.image} style={styles.opacityImage} />
             <Text style={styles.opacityText}>{category.name}</Text>
           </TouchableOpacity>
@@ -40,7 +55,7 @@ const Categoriies = () => {
   )
 }
 
-export default Categoriies
+export default Categories
 
 const styles = StyleSheet.create({
   container: {
@@ -78,4 +93,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#000'
   }
-})
+});

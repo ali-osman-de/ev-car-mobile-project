@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 function SettingsStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="InSetting" component={Settings} />
       <Stack.Screen name="Privacy" component={Privacy} />
       <Stack.Screen name="Content" component={Content} />
     </Stack.Navigator>

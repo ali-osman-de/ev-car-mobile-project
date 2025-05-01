@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import HeroContent from './HeroContent'
@@ -6,7 +6,7 @@ import AICarDreamer from './AICarDreamer'
 import Categories from './Categories'
 import ChargerMap from './ChargerMap'
 
-const Home = () => {
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -20,7 +20,7 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeScreen
 
 const styles = StyleSheet.create({
   container: {
