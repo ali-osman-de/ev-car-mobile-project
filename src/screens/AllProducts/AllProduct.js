@@ -1,59 +1,18 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import CardComponent from './CardComponent'
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import CardComponent from './CardComponent';
 
 const AllProduct = () => {
-  const [carsData, setCarsData] = useState([])
-
-
-  const data = {
-
-    "acceleration": 3.1,
-    "autonomous_driving": true,
-    "battery_capacity": 100,
-    "car_image": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1565798338/autoexpress/2019/08/01_7.jpg",
-    "car_model": "Long Range",
-    "car_name": "Tesla Model S",
-    "car_range": 600,
-    "car_year": 2023,
-    "charge_time": 8,
-    "country_of_origin": "USA",
-    "drive_type": "AWD",
-    "fast_charge_support": true,
-    "height": 1.44,
-    "id": 1,
-    "length": 4.96,
-    "manufacturer": "Tesla",
-    "price": 80000,
-    "seating_capacity": 5,
-    "tax_incentive": true,
-    "top_speed": 250,
-    "weight": 2200,
-    "width": 1.96
-
-  }
-
-  useEffect(() => {
-    fetchCars();
-  }, [])
-
-
-  async function fetchCars() {
-    fetch('https://evcarbackend.onrender.com/cars')
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json)
-        setCarsData(json)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }
+  const { data: carsData, loading, error } = useSelector((state) => state.cars);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.header}>All Electric Vehicles</Text>
+
+        {loading && <ActivityIndicator size="large" color="#0000ff" />}
+        {error && <Text style={styles.errorText}>Error: {error}</Text>}
 
         {carsData.map((car) => (
           <CardComponent
@@ -82,13 +41,12 @@ const AllProduct = () => {
             width={car.width}
           />
         ))}
-
       </View>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default AllProduct
+export default AllProduct;
 
 const styles = StyleSheet.create({
   container: {
@@ -107,7 +65,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
+  errorText: {
+    color: 'red',
+    fontSize: 16,
+    marginBottom: 20,
+  },
   cardComponent: {
-    gap: 80
-  }
-})
+    marginBottom: 20,
+  },
+});
