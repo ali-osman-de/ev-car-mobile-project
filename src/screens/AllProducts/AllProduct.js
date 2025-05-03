@@ -1,10 +1,15 @@
-import { StyleSheet, Text, View, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CardComponent from './CardComponent';
+import { useNavigation } from "@react-navigation/native";
 
-const AllProduct = () => {
+const AllProducts = () => {
   const { data: carsData, loading, error } = useSelector((state) => state.cars);
+  const navigation = useNavigation();
+
+  const handleCardPress = (car) => {
+    navigation.navigate('CarDetails', { ...car });
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -15,38 +20,28 @@ const AllProduct = () => {
         {error && <Text style={styles.errorText}>Error: {error}</Text>}
 
         {carsData.map((car) => (
-          <CardComponent
+          <TouchableOpacity
             key={car.id}
-            car_name={car.car_name}
-            car_model={car.car_model}
-            car_image={car.car_image}
-            style={styles.cardComponent}
-            acceleration={car.acceleration}
-            autonomous_driving={car.autonomous_driving}
-            battery_capacity={car.battery_capacity}
-            car_range={car.car_range}
-            car_year={car.car_year}
-            charge_time={car.charge_time}
-            country_of_origin={car.country_of_origin}
-            drive_type={car.drive_type}
-            fast_charge_support={car.fast_charge_support}
-            height={car.height}
-            length={car.length}
-            manufacturer={car.manufacturer}
-            price={car.price}
-            seating_capacity={car.seating_capacity}
-            tax_incentive={car.tax_incentive}
-            top_speed={car.top_speed}
-            weight={car.weight}
-            width={car.width}
-          />
+            style={styles.card}
+            onPress={() => handleCardPress(car)}
+          >
+            <Image
+              source={{ uri: car.car_image }}
+              style={styles.image}
+              defaultSource={require('../../../assets/icon.png')}
+              onError={(error) => console.log('Image loading error:', error)}
+              resizeMode="cover"
+            />
+            <Text style={styles.title}>{car.car_name}</Text>
+            <Text style={styles.description}>{car.car_model}</Text>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
   );
 };
 
-export default AllProduct;
+export default AllProducts;
 
 const styles = StyleSheet.create({
   container: {
@@ -70,7 +65,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 20,
   },
-  cardComponent: {
-    marginBottom: 20,
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 15,
+    margin: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+    width: '95%',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 14,
+    color: '#666',
   },
 });
