@@ -1,12 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import AllProduct from '../screens/AllProducts/AllProduct';
 import CarDetails from '../screens/AllProducts/CarDetails';
+import SelectedCategory from '../screens/Home/Categories/SelectedCategory';
 
 
 const Stack = createStackNavigator();
 
 
-function SettingsStack() {
+function AllProductStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="AllProduct" component={AllProduct} />
@@ -15,5 +16,5 @@ function SettingsStack() {
   );
 }
 
-export default SettingsStack;
+export default AllProductStack;
 

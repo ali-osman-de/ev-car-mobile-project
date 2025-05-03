@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "midterm2",
-    "slug": "midterm2",
+    "name": "ev-car-mobile",
+    "slug": "ev-car-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
