@@ -1,35 +1,48 @@
-import { ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import { ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const HeroContent = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigation = useNavigation();
+
+    const handleSearch = () => {
+        if (!searchQuery.trim()) return;
+
+        // SearchResults ekranına searchQuery'yi gönder
+        navigation.navigate('SearchResults', { query: searchQuery });
+    };
+
     return (
         <View style={styles.view}>
-            <Text style={styles.welcomeText}>Hosgeldiniz &#128075;</Text>
+            <Text style={styles.welcomeText}>Hoşgeldiniz 👋</Text>
             <ImageBackground
                 source={require('../../../assets/carev.png')}
                 style={styles.imageBackground}
             >
-                <Text style={styles.imageBackgroundText}>
-                    Find Your Dream Car
-                </Text>
+                <Text style={styles.imageBackgroundText}>Find Your Dream Car</Text>
             </ImageBackground>
+
             <TextInput
                 style={styles.searchBar}
                 placeholder="Search Your Dream Car"
                 placeholderTextColor="#666"
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                onSubmitEditing={handleSearch} // enter'a basınca navigate et
             />
         </View>
-    )
-}
+    );
+};
 
-export default HeroContent
+
+export default HeroContent;
 
 const styles = StyleSheet.create({
     view: {
         marginTop: 20,
         marginLeft: 20,
         marginRight: 20,
-
     },
     welcomeText: {
         marginTop: 50,
@@ -37,7 +50,6 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
-
     },
     imageBackground: {
         borderRadius: 25,
@@ -53,7 +65,7 @@ const styles = StyleSheet.create({
         textAlign: 'start',
         color: 'white',
         fontSize: 36,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     searchBar: {
         position: 'absolute',
@@ -69,5 +81,15 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'light',
         color: 'black',
+    },
+    carItem: {
+        padding: 10,
+        backgroundColor: '#f4f4f4',
+        marginBottom: 10,
+        borderRadius: 8,
+    },
+    carName: {
+        fontSize: 18,
+        fontWeight: 'bold',
     }
-})
+});
