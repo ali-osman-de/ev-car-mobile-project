@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ImageBackground, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,12 +9,11 @@ const HeroContent = () => {
     const handleSearch = () => {
         if (!searchQuery.trim()) return;
 
-        // SearchResults ekranına searchQuery'yi gönder
         navigation.navigate('SearchResults', { query: searchQuery });
     };
 
     return (
-        <View style={styles.view}>
+        <ScrollView contentContainerStyle={styles.view}>
             <Text style={styles.welcomeText}>Hoşgeldiniz 👋</Text>
             <ImageBackground
                 source={require('../../../assets/carev.png')}
@@ -31,7 +30,7 @@ const HeroContent = () => {
                 onChangeText={setSearchQuery}
                 onSubmitEditing={handleSearch} // enter'a basınca navigate et
             />
-        </View>
+        </ScrollView>
     );
 };
 
