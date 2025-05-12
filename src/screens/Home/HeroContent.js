@@ -1,10 +1,24 @@
 import { ImageBackground, ScrollView, StyleSheet, Text, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const HeroContent = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [greeting, setGreeting] = useState('');
     const navigation = useNavigation();
+
+    useEffect(() => {
+        const currentHour = new Date().getHours();
+
+        if (currentHour >= 5 && currentHour < 12) {
+            setGreeting('Günaydın');
+        } else if (currentHour >= 12 && currentHour < 18) {
+            setGreeting('İyi Günler');
+        } else {
+            setGreeting('İyi Geceler');
+        }
+    }, []);
+
 
     const handleSearch = () => {
         if (!searchQuery.trim()) return;
@@ -14,7 +28,7 @@ const HeroContent = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.view}>
-            <Text style={styles.welcomeText}>Hoşgeldiniz 👋</Text>
+            <Text style={styles.welcomeText}>{greeting} 👋</Text>
             <ImageBackground
                 source={require('../../../assets/carev.png')}
                 style={styles.imageBackground}
@@ -33,7 +47,6 @@ const HeroContent = () => {
         </ScrollView>
     );
 };
-
 
 export default HeroContent;
 

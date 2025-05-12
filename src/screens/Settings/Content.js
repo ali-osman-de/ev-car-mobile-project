@@ -4,12 +4,10 @@ import { StatusBar } from "expo-status-bar";
 
 const Content = () => {
   const handleOption1 = () => {
-    // Örnek işlem: içerik filtreleme aç
     alert("İçerik Filtreleme Açıldı");
   };
 
   const handleOption2 = () => {
-    // Örnek işlem: bildirim ayarları
     alert("Bildirim Ayarları Güncellendi");
   };
 
