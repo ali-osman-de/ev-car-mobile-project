@@ -1,5 +1,5 @@
 # EV Car Mobile Project
-Bu proje, elektrikli araç sahipleri ve elektrikli araç alacak kişilere birer rehber olması amacıyla geliştirilmiş bir mobil uygulamadır. Kullanıcıların araç bilgilerini görüntüleyebilmesi ve yönetebilmesi amaçlanmıştır. Harita üzerinde en yakın şarj istasyonunu bularak gitmesi amaçlanmıştır. Projenin ilerleyen kısımlarında araç karşılaştırma ve birçok özellik eklenebilir.
+Bu proje, elektrikli araç sahipleri ve elektrikli araç alacak kişilere birer rehber olması amacıyla geliştirilmiş bir mobil uygulamadır. Kullanıcıların araç bilgilerini görüntüleyebilmesi ve yönetebilmesi amaçlanmıştır. Harita üzerinde en yakın şarj istasyonunu bularak gitmesi amaçlanmıştır. Projenin ilerleyen kısımlarında araç karşılaştırma ve birçok özellik eklenebilir. Ayrıca bu proje Yıldız Teknik Üniversitesi BTO4132 kodlu Mobil Programlama Dersi Bitirme Projesi olarak tasarlanmış ve kodlanmıştır.
 
 ## Özellikler
 
@@ -63,7 +63,11 @@ Bu proje, elektrikli araç sahipleri ve elektrikli araç alacak kişilere birer 
 
 ## Backend Hakkında
 
-Projede, kendi geliştirdiğim bir backend servisi kullanılmaktadır. Bu servis ile kullanıcı ve araç verileri güvenli bir şekilde yönetilmektedir. Tüm veri işlemleri (ekleme, silme, güncelleme, listeleme) bu backend üzerinden yapılmaktadır. Bu backend servisi canlı bir sunucu üzerinde çalışmaktadır ve server yavaş olduğundan dolayı servisin yüklenmesi bazen uzun sürebilmektedir.
+Projede, kendi geliştirdiğim bir backend servisi kullanılmaktadır. Bu servis ile kullanıcı ve araç verileri güvenli bir şekilde yönetilmektedir. Tüm veri işlemleri (ekleme, silme, güncelleme, listeleme) bu backend üzerinden yapılmaktadır. Bu backend servisi canlı bir sunucu üzerinde çalışmaktadır ve server yavaş olduğundan dolayı servisin yüklenmesi bazen uzun sürebilmektedir. Ayrıca EvCarBackend canlı servis kısmında yapılabilecek herhangi bir CRUD işlemi geçicidir, OnRender kısmı ücretsiz pakette Database değişikliğine anlık izin vermektedir.
+
+- [EvCarBackendLiveSwagger](https://evcarbackend.onrender.com/swagger/)
+- [EvCarBackendGithubRepo](https://github.com/ali-osman-de/evCarBackend)
+
 
 ## Kurulum
 
