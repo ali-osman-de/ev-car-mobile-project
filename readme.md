@@ -88,6 +88,6 @@ Projede, kendi geliştirdiğim bir backend servisi kullanılmaktadır. Bu servis
   <img src="https://github.com/user-attachments/assets/ba5947ae-d73a-419c-aa63-2e7b7661e674" width="200"/>
   <img src="https://github.com/user-attachments/assets/9c10b977-565d-4f25-b55b-3869486517ba" width="200"/><br>
   <img src="https://github.com/user-attachments/assets/6b2cd908-3807-4096-a12a-03fa3185f03a" width="200"/>
-  <img src="https://github.com/user-attachments/assets/ba0bd538-15aa-4aa2-a663-aed1f938fea2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/3577140b-a104-4ac2-84e9-28461d58862a" width="200"/>
 </p>
 
