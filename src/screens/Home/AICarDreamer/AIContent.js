@@ -85,10 +85,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputContainer: {
+    position: 'absolute',
+    bottom: 80,
     flexDirection: 'row',
     padding: 20,
     backgroundColor: '#fff',
-    borderTopWidth: 1,
     borderColor: '#ccc',
   },
   input: {
