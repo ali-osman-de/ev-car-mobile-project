@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#e3e3e3',
         alignItems: 'center',
         paddingTop: 100,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        paddingBottom: 60,
     },
     searchBar: {
         alignSelf: 'center',
